@@ -9,7 +9,7 @@ pipeline{
     }
     environment{
         DEBUG = 'true'
-        appVersion = ""
+        appVersion = ''
     }
 
     stages {
@@ -22,9 +22,10 @@ pipeline{
                 }
             }
         }
-        stage('Install dependencies') {
+        stage('Test') {
             steps {
-                sh 'npm install'
+                sh 'echo This is test'
+                sh 'env'
             }
         }
         stage('Deploy') {
@@ -36,7 +37,7 @@ pipeline{
                 //error 'pipeline failed'
             }
         }
-        stage('Print Params') {
+        /* stage('Print Params') {
             steps {
                echo "Hello ${params.PERSON}"
                 echo "Biography: ${params.BIOGRAPHY}"
@@ -44,7 +45,7 @@ pipeline{
                 echo "Choice: ${params.CHOICE}"
                 echo "Password: ${params.PASSWORD}"
             }
-        }
+        } */
         /* stage('Approval') {
             input {
                 message "Should we continue?"
